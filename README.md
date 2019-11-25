@@ -6,8 +6,8 @@ What is the interesting way that a user interacts with you program?
 
 <h3>Milestone #1: November 22nd, 2019</h3>
 <ul>
- <li>First bullet point</li>
- <li>Second bullet point</li>
+ <li>Finish outlining the idea</li>
+ <li>Come up with a plan and start researching about how the kinect works</li>
 </ul>
 
 <h3>Milestone #2: December 2nd, 2019</h3>
