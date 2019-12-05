@@ -1,15 +1,18 @@
 /*
 
- Use the kinetic and create a place where there are falling celing peices
- and you must move to avoid them, otherwise you are damaged if they hit you.
- You also have a health meter which when it reaches 0 gives you a game over
- screen.
+ I used the kinetic to create a game where there are falling snowflakes 
+ that you must avoid using you hand, if you don't, you are damanged and
+ you health is lowered. Once your health reaches 0 the game will display
+ a 'game over' screen.
  
  */
 
 import org.openkinect.freenect.*;
 import org.openkinect.processing.*;
-
+PImage SnowflakeOne;
+PImage SnowflakeTwo;
+PImage SnowflakeThree;
+PImage Tree;
 
 KinectTracker tracker;
 Kinect kinect;
@@ -19,6 +22,14 @@ PFont font;
 
 void setup() 
 {
+  SnowflakeOne = loadImage("snowflakeOne.png");
+  SnowflakeOne.resize(50, 50);
+  SnowflakeTwo = loadImage("snowflakeTwo.png");
+  SnowflakeTwo.resize(50, 50);
+  SnowflakeThree = loadImage("snowflakeThree.png");
+  SnowflakeThree.resize(50, 50);
+  Tree = loadImage("tree.png");
+  Tree.resize(130, 150);
   size(640, 530);
   kinect = new Kinect(this);
   tracker = new KinectTracker();
@@ -38,7 +49,6 @@ void draw()
   tracker.display();
 
   PVector v1 = tracker.getPos();
-  //fill(50, 100, 250, 200);
   fill(0, 0, 255);
   stroke(0, 0, 255);
   ellipse(v1.x, v1.y, 50, 50);
@@ -69,4 +79,5 @@ void draw()
     textFont(font);
     text("GAME OVER", 60, 250);
   }
+  image(Tree, 490, 380);
 }
