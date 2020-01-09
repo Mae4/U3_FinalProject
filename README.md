@@ -12,8 +12,8 @@ What is the interesting way that a user interacts with you program?
 
 <h3>Milestone #2: December 2nd, 2019</h3>
 <ul>
- <li>First bullet point</li>
- <li>Second bullet point</li>
+ <li>Learn more about the kinetic code and how to use the average point formula (Once I got to understanding this I used it inside of my actual project and changed the corresponding parts)</li>
+ <li></li>
 </ul>
 
 <h3>Milestone #3: December 13th, 2019</h3>
