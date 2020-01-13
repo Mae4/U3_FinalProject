@@ -10,7 +10,6 @@ class KinectTracker
     kinect.initDepth();
     kinect.enableMirror(true);
     display = createImage(kinect.width, kinect.height, RGB);
-    // Set up the vectors
     loc = new PVector(0, 0);
     lerpedLoc = new PVector(0, 0);
   }

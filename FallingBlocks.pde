@@ -9,7 +9,7 @@ class FallingBlocks
   {
     _velocity = (int)random(1, 6);
     _x = random(0, 640);
-    _y = random(-800, -400);
+    _y = random(-1200, -800);
   }
 
   void Draw()
