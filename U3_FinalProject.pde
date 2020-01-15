@@ -1,25 +1,15 @@
 /*
-
- THURSDAY 10 JAN
- -> Made a starting screen so that you could play again
- -> The font needs to be changed
- 
- MONDAY 13 JAN
- -> font has been changed so that it changes conrresponding to the screen - DONE
- -> change the starting points of the snowflakes - DONE
- -> change to a larger threshhold - DONT KNOW
- -> change instruction to match - DONE
- 
- 
- I used the kinetic to create a game where there are falling snowflakes 
+I used the kinetic to create a game where there are falling snowflakes 
  that you must avoid using you hand, if you don't, you are damanged and
  you health is lowered. Once your health reaches 0 the game will display
  a 'game over' screen, and you can try again by pressing the button.
- 
- */
+*/
 
 import org.openkinect.freenect.*;
 import org.openkinect.processing.*;
+import ddf.minim.*; 
+Minim minim;
+AudioPlayer backgroundMusic;
 PImage SnowflakeOne;
 PImage SnowflakeTwo;
 PImage SnowflakeThree;
@@ -29,6 +19,9 @@ int startingx = 320;
 int startingy = 400;
 int gameoverx = 320;
 int gameovery = 400;
+int red = 0;
+int green = 0;
+int blue = 255;
 
 KinectTracker tracker;
 Kinect kinect;
@@ -39,6 +32,8 @@ PFont mainFont;
 
 void setup() 
 {
+  
+  minim = new Minim(this);
   SnowflakeOne = loadImage("snowflakeOne.png");
   SnowflakeOne.resize(50, 50);
   SnowflakeTwo = loadImage("snowflakeTwo.png");
@@ -57,10 +52,12 @@ void setup()
   }
   font = loadFont("GameOver.vlw");
   mainFont = loadFont("font2.vlw");
+  backgroundMusic = minim.loadFile("dramatic.mp3");
 }
 
 void draw() 
 {
+  backgroundMusic.play();
   background(255);
 
   tracker.track();
@@ -90,12 +87,13 @@ void startingScreen()
 
   PVector v1 = tracker.getPos();
 
+//Circle That Tracks Hand
   fill(0, 0, 255);
   stroke(0, 0, 255);
   ellipse(v1.x, v1.y, 50, 50);
-  fill(0);
+  
+//Christmas Tree in Corner
   image(Tree, 490, 380);
-
 
   stroke(222, 54, 216);
   fill(210, 54, 216);
@@ -121,8 +119,8 @@ void game()
 {
   textFont(mainFont);
   PVector v1 = tracker.getPos();
-  fill(0, 0, 255);
-  stroke(0, 0, 255);
+  fill(red, green, blue);
+  stroke(red, green, blue);
   ellipse(v1.x, v1.y, 50, 50);
   fill(0);
   for (int i=0; i < 10; i++)
@@ -131,7 +129,10 @@ void game()
     float d = dist(v1.x, v1.y, blocks[i]._x, blocks[i]._y);
     if (d<25+15)
     {
-      background(134, 3214, 13);
+      //background(134, 3214, 13);
+      red = (int)random(0, 500);
+      green = (int)random(0, 500);
+      blue = (int)random(0, 500);
       health--;
     }
   }

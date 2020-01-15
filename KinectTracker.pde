@@ -1,6 +1,6 @@
 class KinectTracker 
 {
-  int threshold = 500;
+  int threshold = 550;
   PVector loc;
   PVector lerpedLoc;
   int[] depth;
